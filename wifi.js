@@ -13,7 +13,7 @@ var sonic  = require('@amperka/ultrasonic'  ).connect({ trigPin: P10, echoPin: P
 var servo  = require('@amperka/servo'       ).connect(P13);
 var http   = require("http");
 var wifi   = require('@amperka/wifi').setup(Serial2, function(err) {
-  wifi.connect('krsz.ru', '88888888', function(err) {});
+  wifi.connect('wifi', 'password', function(err) {});
   wifi.getIP(function(err, ip)       { console.log("ip:", ip); });
   wifi.getVersion(function(err, ver) { console.log('version:', ver); });
 });
