@@ -14,6 +14,7 @@ MHZ19.prototype.read      = function() { this._serial.write("\xFF\x01\x86\x00\x0
                                          var a      = [];
                                          for (var i=0; i < data.length; i++) { a.push(data.charCodeAt(i)); }
                                          var status = (256 - (a[1] + a[2] + a[3] + a[4] + a[5] + a[6] + a[7])%256) == a[8];
+                                         if (!status) { this._serial.read(1) };
                                          var co2    = a[2] * 256 + a[3];
                                          var temp   = a[4]-40;
                                          return { status: status, co2: co2, temp: temp };
